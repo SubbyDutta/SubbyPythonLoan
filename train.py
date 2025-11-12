@@ -14,8 +14,8 @@ n_samples = 5000
 
 income = np.random.normal(loc=40000, scale=20000, size=n_samples).clip(8000, 150000)
 balance = np.random.normal(loc=15000, scale=10000, size=n_samples).clip(0, 100000)
-avg_transaction = np.random.normal(loc=1000, scale=500, size=n_samples).clip(100, 20000)
-credit_score = np.random.normal(loc=600, scale=100, size=n_samples).clip(300, 900)
+avg_transaction = np.random.normal(loc=2000, scale=1500, size=n_samples).clip(100, 20000)
+credit_score = np.random.normal(loc=650, scale=100, size=n_samples).clip(300, 900)
 requested_amount = np.random.normal(loc=20000, scale=15000, size=n_samples).clip(1000, 150000)
 
 
