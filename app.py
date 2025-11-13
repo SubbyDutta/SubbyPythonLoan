@@ -6,7 +6,7 @@ import pandas as pd
 
 app = FastAPI()
 
-# Load model & scaler
+
 model = joblib.load("loan_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
