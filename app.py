@@ -1,4 +1,4 @@
-# app.py
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
@@ -6,7 +6,7 @@ import pandas as pd
 
 app = FastAPI()
 
-# Load model & scaler
+
 model = joblib.load("loan_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
@@ -21,7 +21,7 @@ class LoanRequest(BaseModel):
 
 @app.post("/predictloan")
 def predict_loan(data: LoanRequest):
-    # Prepare numeric features only
+   
     df = pd.DataFrame([{
         "income": data.income,
         "balance": data.balance,

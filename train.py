@@ -47,7 +47,7 @@ data = pd.DataFrame({
     "eligible": eligible
 })
 
-print("✅ Data distribution:\n", data['eligible'].value_counts())
+print(" Data distribution:\n", data['eligible'].value_counts())
 
 
 X = data.drop("eligible", axis=1)
@@ -60,7 +60,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 smote = SMOTE(random_state=42)
 X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
-print("✅ After SMOTE:", pd.Series(y_train_res).value_counts())
+print(" After SMOTE:", pd.Series(y_train_res).value_counts())
 
 
 scaler = StandardScaler()
@@ -80,9 +80,7 @@ model = XGBClassifier(
 )
 model.fit(X_train_scaled, y_train_res)
 
-# ----------------------------
-# 7. Evaluate
-# ----------------------------
+
 y_pred = model.predict(X_test_scaled)
 y_prob = model.predict_proba(X_test_scaled)[:, 1]
 
@@ -90,9 +88,6 @@ print("\n✅ Accuracy:", accuracy_score(y_test, y_pred))
 print("✅ ROC-AUC:", roc_auc_score(y_test, y_prob))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 
-# ----------------------------
-# 8. Save Model
-# ----------------------------
 joblib.dump(model, "loan_model.pkl")
 joblib.dump(scaler, "scaler.pkl")
 
