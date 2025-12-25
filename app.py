@@ -19,6 +19,11 @@ class LoanRequest(BaseModel):
     balance: float
     avg_transaction: float
 
+    
+@app.get("/health")
+def health():
+    return "OK"
+
 @app.post("/predictloan")
 def predict_loan(data: LoanRequest):
    
